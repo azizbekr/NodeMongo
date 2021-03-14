@@ -1,6 +1,8 @@
-const db = require("../Models/Users")
+const Users = require("../Models/Users")
 async function getUsers(req, res, next) {
-    console.log(req.url, req.method)
-    res.json(req.url)
+    
+    const usersList = await Users.find()
+    // console.log(usersList)
+    res.json(usersList)
 }
 module.exports.getUsers = getUsers
